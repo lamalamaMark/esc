@@ -18,17 +18,37 @@ class Esc {
     });
 
     document
+      .querySelector(".adfjadejejfadlmv")
+      .addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(".hahjsadfhjadfslk").classList.add("hidden");
+        document.querySelector(".iwerewirqoewajf").classList.remove("hidden");
+        this.start();
+        return false;
+      });
+
+    document
       .querySelector(".ajqqekfqakefjeaef")
       .addEventListener("click", (e) => {
         e.preventDefault();
-        alert();
+        document.querySelector(".iwerewirqoewajf").classList.add("hidden");
+        document.querySelector(".jadsfiofadkss").classList.remove("hidden");
         return false;
       });
+
+    document.querySelectorAll(".iefiaalsdf").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        const currentNum = parseInt(el.textContent);
+        console.log(currentNum);
+
+        el.textContent = currentNum === 9 ? 0 : currentNum + 1;
+        return false;
+      });
+    });
   }
 
-  init() {
-    this.start();
-  }
+  init() {}
 
   start() {
     const tenMinutesFromNow = new Date(Date.now() + 10 * 60 * 1000);
