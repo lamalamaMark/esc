@@ -40,12 +40,35 @@ class Esc {
       el.addEventListener("click", (e) => {
         e.preventDefault();
         const currentNum = parseInt(el.textContent);
-        console.log(currentNum);
-
         el.textContent = currentNum === 9 ? 0 : currentNum + 1;
         return false;
       });
     });
+
+    document
+      .querySelector(".oiewrfajsafmsss")
+      .addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const code = Array.from(document.querySelectorAll(".iefiaalsdf"))
+          .map((el) => el.textContent)
+          .join("");
+
+        // Check code
+        if (code === "00000") {
+          document.querySelector(".jadsfiofadkss").classList.add("hidden");
+          document.querySelector(".ytregsfgdfasgf").classList.remove("hidden");
+          document.querySelector(".tqergsfdgsfda").innerHTML = `
+            <div class="text-center text-[140px]">
+                Send ’unlock the Gate’ to your own WhatsApp group to prove you're ready for what's to come.
+            </div>
+          `;
+        } else {
+          // err
+        }
+
+        return false;
+      });
   }
 
   init() {}
