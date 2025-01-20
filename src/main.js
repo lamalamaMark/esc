@@ -31,13 +31,15 @@ class Esc {
   }
 
   start() {
+    const tenMinutesFromNow = new Date(Date.now() + 10 * 60 * 1000);
+
     simplyCountdown(".iqowefhadsvnadsldc", {
-      year: 2025,
-      month: 1,
-      day: 20,
-      hours: 17,
-      minutes: 0,
-      seconds: 0,
+      year: tenMinutesFromNow.getFullYear(),
+      month: tenMinutesFromNow.getMonth() + 1, // getMonth() is 0-based
+      day: tenMinutesFromNow.getDate(),
+      hours: tenMinutesFromNow.getHours(),
+      minutes: tenMinutesFromNow.getMinutes(),
+      seconds: tenMinutesFromNow.getSeconds(),
       words: {
         // Custom labels, with lambda for plurals
         days: { root: "", lambda: (root, n) => root },
@@ -58,7 +60,7 @@ class Esc {
       inline: true, // Inline format: e.g., "24 days, 4 hours, 2 minutes"
       inlineSeparator: ":", // Separator for inline format, default: ", "
       inlineClass: "simply-countdown-inline", // CSS class for inline countdown
-      enableUtc: true, // Use UTC time if true
+      enableUtc: false, // Use UTC time if true
       refresh: 1000, // Refresh interval in ms, default: 1000
       sectionClass: "simply-section", // CSS class for each countdown section
       amountClass: "simply-amount", // CSS class for numeric values
