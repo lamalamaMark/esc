@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
 class Esc {
   constructor() {
     this.bindEvents();
-    this.init();
+    this.startSmoke();
   }
 
   bindEvents() {
     document.addEventListener("contextmenu", (e) => {
-      // e.preventDefault();
+      e.preventDefault();
       return false;
     });
 
@@ -71,9 +71,20 @@ class Esc {
       });
   }
 
-  init() {}
-
   start() {
+    this.startAudio();
+    this.startCountdown();
+  }
+
+  startAudio() {
+    const audio = new Audio("tune.mp3");
+    audio.loop = true;
+    audio.play();
+  }
+
+  startSmoke() {}
+
+  startCountdown() {
     const tenMinutesFromNow = new Date(Date.now() + 10 * 60 * 1000);
 
     simplyCountdown(".iqowefhadsvnadsldc", {

@@ -15,6 +15,8 @@
     "vite": "^6.0.7"
   },
   "dependencies": {
-    "simplycountdown.js": "^3.0.1"
+    "@bijection/smoke": "^1.0.2",
+    "simplycountdown.js": "^3.0.1",
+    "smoke-effect": "^1.1.1"
   }
 }
