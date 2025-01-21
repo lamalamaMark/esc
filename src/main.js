@@ -21,6 +21,8 @@ class Esc {
       .querySelector(".adfjadejejfadlmv")
       .addEventListener("click", (e) => {
         e.preventDefault();
+        this.uiSoundClick();
+        this.uiSoundTransition();
         document.querySelector(".hahjsadfhjadfslk").classList.add("hidden");
         document.querySelector(".iwerewirqoewajf").classList.remove("hidden");
         this.start();
@@ -31,6 +33,8 @@ class Esc {
       .querySelector(".ajqqekfqakefjeaef")
       .addEventListener("click", (e) => {
         e.preventDefault();
+        this.uiSoundClick();
+        this.uiSoundTransition();
         document.querySelector(".iwerewirqoewajf").classList.add("hidden");
         document.querySelector(".jadsfiofadkss").classList.remove("hidden");
         return false;
@@ -39,6 +43,8 @@ class Esc {
     document.querySelectorAll(".iefiaalsdf").forEach((el) => {
       el.addEventListener("click", (e) => {
         e.preventDefault();
+        this.uiSoundTransition();
+        this.uiSoundClick();
         const currentNum = parseInt(el.textContent);
         el.textContent = currentNum === 9 ? 0 : currentNum + 1;
         return false;
@@ -49,6 +55,8 @@ class Esc {
       .querySelector(".oiewrfajsafmsss")
       .addEventListener("click", (e) => {
         e.preventDefault();
+
+        this.uiSoundClick();
 
         const code = Array.from(document.querySelectorAll(".iefiaalsdf"))
           .map((el) => el.textContent)
@@ -97,6 +105,21 @@ class Esc {
   startAudio() {
     const audio = new Audio("tune.mp3");
     audio.loop = true;
+    audio.play();
+  }
+
+  uiSoundClick() {
+    const audio = new Audio("click.mp3");
+    audio.play();
+  }
+
+  uiSoundHover() {
+    const audio = new Audio("hover.mp3");
+    audio.play();
+  }
+
+  uiSoundTransition() {
+    const audio = new Audio("transition.mp3");
     audio.play();
   }
 
