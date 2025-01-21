@@ -54,18 +54,36 @@ class Esc {
           .map((el) => el.textContent)
           .join("");
 
-        // Check code
-        if (code === "00000") {
-          document.querySelector(".jadsfiofadkss").classList.add("hidden");
-          document.querySelector(".ytregsfgdfasgf").classList.remove("hidden");
-          document.querySelector(".tqergsfdgsfda").innerHTML = `
-            <div class="text-center text-[140px]">
-                Send ’unlock the Gate’ to your own WhatsApp group to prove you're ready for what's to come.
-            </div>
-          `;
-        } else {
-          // err
-        }
+        let endpoint = import.meta.env.DEV
+          ? "http://api.weekender.test/"
+          : "https://api.88425.lamalama.nl/";
+
+        fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            code: code,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+
+            if (data.ok) {
+              document.querySelector(".jadsfiofadkss").classList.add("hidden");
+              document
+                .querySelector(".ytregsfgdfasgf")
+                .classList.remove("hidden");
+
+              document.querySelector(".tqergsfdgsfda").innerHTML = `
+              <div class="text-center text-[140px]">
+                  ${data.message}
+              </div>
+            `;
+            }
+          });
 
         return false;
       });
