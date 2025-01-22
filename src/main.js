@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 class Esc {
   constructor() {
     this.bindEvents();
-    this.startSmoke();
   }
 
   bindEvents() {
@@ -72,8 +71,6 @@ class Esc {
             code: code,
           })
           .then(({ data }) => {
-            console.log(data);
-
             if (data.ok) {
               document.querySelector(".jadsfiofadkss").classList.add("hidden");
               document
@@ -117,8 +114,6 @@ class Esc {
     const audio = new Audio("transition.mp3");
     audio.play();
   }
-
-  startSmoke() {}
 
   startCountdown() {
     const tenMinutesFromNow = new Date(Date.now() + 10 * 60 * 1000);
