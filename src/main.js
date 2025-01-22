@@ -82,6 +82,10 @@ class Esc {
                   ${data.message}
               </div>
             `;
+
+              this.uiSoundSuccess();
+            } else {
+              this.uiSoundError();
             }
           });
 
@@ -112,6 +116,16 @@ class Esc {
 
   uiSoundTransition() {
     const audio = new Audio("transition.mp3");
+    audio.play();
+  }
+
+  uiSoundError() {
+    const audio = new Audio("error.mp3");
+    audio.play();
+  }
+
+  uiSoundSuccess() {
+    const audio = new Audio("success.mp3");
     audio.play();
   }
 
