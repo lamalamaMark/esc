@@ -65,7 +65,7 @@ class Esc {
 
         let endpoint = import.meta.env.DEV
           ? "http://api.weekender.test"
-          : "https://api.88425.lamalama.nl/codes";
+          : "https://api.88425.lamalama.nl/codes/";
 
         axios
           .post(endpoint, {
