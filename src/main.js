@@ -1,4 +1,5 @@
 import "./style.css";
+import axios from "axios";
 import simplyCountdown from "simplycountdown.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -66,17 +67,11 @@ class Esc {
           ? "http://api.weekender.test/"
           : "https://api.88425.lamalama.nl/";
 
-        fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
+        axios
+          .post(endpoint, {
             code: code,
-          }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
+          })
+          .then(({ data }) => {
             console.log(data);
 
             if (data.ok) {
